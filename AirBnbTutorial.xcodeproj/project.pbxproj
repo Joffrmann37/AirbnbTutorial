@@ -77,6 +77,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B45A3B3E2C6AEBC10048FAAD /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B45A3B3F2C6AEBCB0048FAAD /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		B45A3B402C6AEBD60048FAAD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B45A3B412C6AEBE70048FAAD /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		B45A3B422C6AEBF00048FAAD /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B45A3B432C6AEBFD0048FAAD /* Wishlists */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wishlists;
+			sourceTree = "<group>";
+		};
+		B45A3B442C6AEC090048FAAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B45A3B452C6AEC1B0048FAAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B45A3B462C6AEC220048FAAD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DE6332EC2C6ABEEE00223522 = {
 			isa = PBXGroup;
 			children = (
@@ -100,11 +163,11 @@
 		DE6332F72C6ABEEE00223522 /* AirBnbTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				DE6333222C6ABF1000223522 /* App */,
+				B45A3B3E2C6AEBC10048FAAD /* App */,
 				DE6333232C6ABF2800223522 /* Core */,
-				DE6333242C6ABF3C00223522 /* Extensions */,
-				DE6333252C6ABF4E00223522 /* Models */,
-				DE6333262C6ABF6200223522 /* Utils */,
+				B45A3B442C6AEC090048FAAD /* Extensions */,
+				B45A3B452C6AEC1B0048FAAD /* Models */,
+				B45A3B462C6AEC220048FAAD /* Utils */,
 				DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */,
 				DE6332FA2C6ABEEE00223522 /* ContentView.swift */,
 				DE6332FC2C6ABEF000223522 /* Assets.xcassets */,
@@ -138,46 +201,18 @@
 			path = AirBnbTutorialUITests;
 			sourceTree = "<group>";
 		};
-		DE6333222C6ABF1000223522 /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		DE6333232C6ABF2800223522 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				DE6333272C6ABFCA00223522 /* Explore */,
 				DE6333282C6ABFD100223522 /* Listings */,
-				DE6333292C6ABFDA00223522 /* MapView */,
-				DE63332A2C6ABFE200223522 /* Profile */,
-				DE63332D2C6AC02200223522 /* Root */,
-				DE63332C2C6ABFF200223522 /* TabBar */,
-				DE63332B2C6ABFE900223522 /* Wishlists */,
+				B45A3B3F2C6AEBCB0048FAAD /* MapView */,
+				B45A3B402C6AEBD60048FAAD /* Profile */,
+				B45A3B412C6AEBE70048FAAD /* Root */,
+				B45A3B422C6AEBF00048FAAD /* TabBar */,
+				B45A3B432C6AEBFD0048FAAD /* Wishlists */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		DE6333242C6ABF3C00223522 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DE6333252C6ABF4E00223522 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		DE6333262C6ABF6200223522 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		DE6333272C6ABFCA00223522 /* Explore */ = {
@@ -195,41 +230,6 @@
 				DE6333302C6AC24800223522 /* ListingItemView.swift */,
 			);
 			path = Listings;
-			sourceTree = "<group>";
-		};
-		DE6333292C6ABFDA00223522 /* MapView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MapView;
-			sourceTree = "<group>";
-		};
-		DE63332A2C6ABFE200223522 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		DE63332B2C6ABFE900223522 /* Wishlists */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Wishlists;
-			sourceTree = "<group>";
-		};
-		DE63332C2C6ABFF200223522 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		DE63332D2C6AC02200223522 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

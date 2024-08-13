@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B45A3B482C6AF00C0048FAAD /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A3B472C6AF00C0048FAAD /* ListingDetailView.swift */; };
+		B45A3B4B2C6AF68D0048FAAD /* ListingImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A3B4A2C6AF68D0048FAAD /* ListingImageCarouselView.swift */; };
 		DE6332F92C6ABEEE00223522 /* AirBnbTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */; };
 		DE6332FB2C6ABEEE00223522 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332FA2C6ABEEE00223522 /* ContentView.swift */; };
 		DE6332FD2C6ABEF000223522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE6332FC2C6ABEF000223522 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B45A3B472C6AF00C0048FAAD /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
+		B45A3B4A2C6AF68D0048FAAD /* ListingImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageCarouselView.swift; sourceTree = "<group>"; };
 		DE6332F52C6ABEEE00223522 /* AirBnbTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirBnbTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBnbTutorialApp.swift; sourceTree = "<group>"; };
 		DE6332FA2C6ABEEE00223522 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		B45A3B3E2C6AEBC10048FAAD /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -140,6 +145,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B45A3B492C6AF66C0048FAAD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B45A3B4A2C6AF68D0048FAAD /* ListingImageCarouselView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DE6332EC2C6ABEEE00223522 = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +181,6 @@
 				B45A3B442C6AEC090048FAAD /* Extensions */,
 				B45A3B452C6AEC1B0048FAAD /* Models */,
 				B45A3B462C6AEC220048FAAD /* Utils */,
-				DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */,
 				DE6332FA2C6ABEEE00223522 /* ContentView.swift */,
 				DE6332FC2C6ABEF000223522 /* Assets.xcassets */,
 				DE6332FE2C6ABEF000223522 /* Preview Content */,
@@ -204,6 +216,7 @@
 		DE6333232C6ABF2800223522 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B45A3B492C6AF66C0048FAAD /* Components */,
 				DE6333272C6ABFCA00223522 /* Explore */,
 				DE6333282C6ABFD100223522 /* Listings */,
 				B45A3B3F2C6AEBCB0048FAAD /* MapView */,
@@ -228,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				DE6333302C6AC24800223522 /* ListingItemView.swift */,
+				B45A3B472C6AF00C0048FAAD /* ListingDetailView.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -362,10 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45A3B4B2C6AF68D0048FAAD /* ListingImageCarouselView.swift in Sources */,
 				DE6332FB2C6ABEEE00223522 /* ContentView.swift in Sources */,
 				DE6333312C6AC24800223522 /* ListingItemView.swift in Sources */,
 				DE63332F2C6AC08500223522 /* ExploreView.swift in Sources */,
 				DE6333332C6ACD4200223522 /* SearchAndFilterBar.swift in Sources */,
+				B45A3B482C6AF00C0048FAAD /* ListingDetailView.swift in Sources */,
 				DE6332F92C6ABEEE00223522 /* AirBnbTutorialApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,6 +554,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -567,6 +584,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchAndFilterBar: View {
     var body: some View {
         HStack {
-            Image(systemName: "manifyingglass")
+            Image(systemName: "magnifyingglass")
             
             VStack(alignment: .leading, spacing: 2) {
                 Text("Where to?")

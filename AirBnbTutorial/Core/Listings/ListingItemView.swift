@@ -19,6 +19,8 @@ struct ListingItemView: View {
         VStack(spacing: 8) {
             // images
             ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: images))
+                .frame(height: 320)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
 
             // listing details
 
@@ -40,12 +42,7 @@ struct ListingItemView: View {
                     .foregroundStyle(.black)
                 }
                 Spacer()
-                // rating
-                HStack(spacing: 2) {
-                    Image(systemName: "star.fill")
-                    Text("4.86")
-                }
-                .foregroundStyle(.black)
+                RatingView(vm: RatingViewModel(rating: "4.86", numOfReviews: 28))
             }
             .font(.footnote)
         }

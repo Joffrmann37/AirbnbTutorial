@@ -15,33 +15,34 @@ struct ListingDetailView: View {
         "listing-3",
         "listing-4"
     ]
-    
-    @State var shouldShowViewTwo = false
-    
+        
     @Binding var path: [Int]
     
     @Binding var listing: Int
     
     var body: some View {
         ScrollView {
-            NavigationLink(value: "") {
-                ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: images))
-            }
-        }
-        .onChange(of: shouldShowViewTwo, initial: false, { oldValue, newValue in
-            if newValue {
-                path.append(listing)
-            }
-        })
-        .onAppear() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.shouldShowViewTwo = true
-            }
+            ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: images))
+                .frame(height: 320)
             
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Miami Villa")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                VStack(alignment: .leading) {
+                    RatingView(vm: RatingViewModel(rating: "4.86", numOfReviews: 28))
+                    Text("Miami, Florida")
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading)
+            .font(.caption)
+            
+            Divider()
+            
+            // Host info view
+            HostInfoView(vm: HostInfoViewModel(name: "Joffrey Mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
         }
-        .navigationDestination(isPresented: $shouldShowViewTwo, destination: {
-            ViewTwo(navigationPath: $path)
-        })
     }
 }
 

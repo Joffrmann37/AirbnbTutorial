@@ -26,8 +26,6 @@ struct ListingImageCarouselView: View {
                     .scaledToFill()
             }
         }
-        .frame(height: 320)
-        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
         .tabViewStyle(.page)
     }
 }

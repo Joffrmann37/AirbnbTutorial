@@ -14,7 +14,7 @@ struct ListingFeaturesVMKey: EnvironmentKey {
     ])
 }
 
-extension EnvironmentValues {
+private extension EnvironmentValues {
     var vm: ListingFeaturesViewModel {
         get { self[ListingFeaturesVMKey.self] }
         set { self[ListingFeaturesVMKey.self] = newValue }

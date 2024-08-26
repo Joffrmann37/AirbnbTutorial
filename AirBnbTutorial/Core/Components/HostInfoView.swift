@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+struct HostInfoVMKey: EnvironmentKey {
+    static var defaultValue = HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile")
+}
+
+private extension EnvironmentValues {
+    var vm: HostInfoViewModel {
+        get { self[HostInfoVMKey.self] }
+        set { self[HostInfoVMKey.self] = newValue }
+    }
+}
+
 struct HostInfoView: View {
-    @EnvironmentObject var vm: HostInfoViewModel
+    @Environment(\.vm) var vm
     
     var body: some View {
         HStack {
@@ -35,12 +46,12 @@ struct HostInfoView: View {
                 .frame(width: 64, height: 64)
                 .clipShape(Circle())
         }
-        .environmentObject(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+        .environment(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
         .padding()
     }
 }
 
 #Preview {
     HostInfoView()
-        .environmentObject(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+        .environment(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
 }

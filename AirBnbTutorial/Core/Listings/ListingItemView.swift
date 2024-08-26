@@ -15,10 +15,12 @@ struct ListingItemView: View {
         "listing-4"
     ]
     
+    @Binding var listing: Listing
+    
     var body: some View {
         VStack(spacing: 8) {
             // images
-            ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: images))
+            ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: listing.images))
                 .frame(height: 320)
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
 
@@ -27,17 +29,17 @@ struct ListingItemView: View {
             HStack(alignment: .top) {
                 // details
                 VStack(alignment: .leading) {
-                    Text("Miami, Florida")
+                    Text(listing.city)
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
-                    Text("12 mi away")
+                    Text("\(listing.distance) away")
                         .foregroundStyle(.gray)
-                    Text("Nov 3 - 10")
+                    Text(listing.date)
                         .foregroundStyle(.gray)
                     HStack(spacing: 4) {
-                        Text("$567")
+                        Text("\(listing.price)")
                             .fontWeight(.semibold)
-                        Text("night")
+                        Text(listing.frequency)
                     }
                     .foregroundStyle(.black)
                 }
@@ -51,5 +53,5 @@ struct ListingItemView: View {
 }
 
 #Preview {
-    ListingItemView()
+    ListingItemView(listing: .constant(Listing(city: "Miami", date: "Nov 3 - 10", distance: "12 mi", frequency: "night", price: 567, state: "FL", caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"])))
 }

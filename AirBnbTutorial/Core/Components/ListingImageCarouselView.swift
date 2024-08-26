@@ -21,9 +21,11 @@ struct ListingImageCarouselView: View {
     var body: some View {
         TabView {
             ForEach(viewModel.images, id: \.self) { image in
-                Image(image)
-                    .resizable()
-                    .scaledToFill()
+                AsyncImage(url: URL(string: image)) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
             }
         }
         .tabViewStyle(.page)

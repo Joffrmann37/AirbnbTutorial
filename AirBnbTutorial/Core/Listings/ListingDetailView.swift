@@ -16,22 +16,22 @@ struct ListingDetailView: View {
         "listing-4"
     ]
         
-    @Binding var path: [Int]
+    @Binding var path: [Listing]
     
-    @Binding var listing: Int
+    @Binding var listing: Listing
     
     var body: some View {
         ScrollView {
-            ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: images))
+            ListingImageCarouselView(viewModel: ListingImageCarouselViewModel(images: listing.images))
                 .frame(height: 320)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("Miami Villa")
+                Text(listing.caption)
                     .font(.title)
                     .fontWeight(.semibold)
                 VStack(alignment: .leading) {
                     RatingView()
-                    Text("Miami, Florida")
+                    Text(listing.city)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -53,5 +53,5 @@ struct ListingDetailView: View {
 }
 
 #Preview {
-    ListingDetailView(path: .constant([]), listing: .constant(1))
+    ListingDetailView(path: .constant([]), listing: .constant(Listing(city: "Miami", date: "Nov 3 - 10", distance: "12 mi", frequency: "night", price: 567, state: "FL", caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"])))
 }

@@ -42,8 +42,9 @@ struct ListingItemView: View {
                     .foregroundStyle(.black)
                 }
                 Spacer()
-                RatingView(vm: RatingViewModel(rating: "4.86", numOfReviews: 28))
+                RatingView()
             }
+            .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
             .font(.footnote)
         }
     }

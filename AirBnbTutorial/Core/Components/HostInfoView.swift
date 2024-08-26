@@ -12,7 +12,7 @@ struct HostInfoView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text("Entire villa hosted by \(vm.name)")
                     .font(.headline)
                     .frame(width: 250, alignment: .leading)
@@ -25,7 +25,7 @@ struct HostInfoView: View {
                 }
                 .font(.caption)
             }
-            .frame(width: 300)
+            .frame(width: 300, alignment: .leading)
             
             Spacer()
             
@@ -35,6 +35,7 @@ struct HostInfoView: View {
                 .frame(width: 64, height: 64)
                 .clipShape(Circle())
         }
+        .padding()
     }
 }
 

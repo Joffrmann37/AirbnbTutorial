@@ -14,6 +14,8 @@
 		B4B3CB112C72CFDF00FB0D49 /* joffreyProfile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B4B3CB102C72CFDF00FB0D49 /* joffreyProfile.jpeg */; };
 		B4B3CB152C72D0F500FB0D49 /* HostInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3CB142C72D0F500FB0D49 /* HostInfoViewModel.swift */; };
 		B4B3CB182C72D25900FB0D49 /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3CB172C72D25900FB0D49 /* RatingViewModel.swift */; };
+		B4B3CB1A2C7C2FAA00FB0D49 /* ListingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3CB192C7C2FAA00FB0D49 /* ListingFeaturesView.swift */; };
+		B4B3CB1C2C7C313F00FB0D49 /* ListingFeaturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3CB1B2C7C313F00FB0D49 /* ListingFeaturesViewModel.swift */; };
 		DE6332F92C6ABEEE00223522 /* AirBnbTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */; };
 		DE6332FB2C6ABEEE00223522 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332FA2C6ABEEE00223522 /* ContentView.swift */; };
 		DE6332FD2C6ABEF000223522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE6332FC2C6ABEF000223522 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		B4B3CB102C72CFDF00FB0D49 /* joffreyProfile.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joffreyProfile.jpeg; sourceTree = "<group>"; };
 		B4B3CB142C72D0F500FB0D49 /* HostInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoViewModel.swift; sourceTree = "<group>"; };
 		B4B3CB172C72D25900FB0D49 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
+		B4B3CB192C7C2FAA00FB0D49 /* ListingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFeaturesView.swift; sourceTree = "<group>"; };
+		B4B3CB1B2C7C313F00FB0D49 /* ListingFeaturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFeaturesViewModel.swift; sourceTree = "<group>"; };
 		DE6332F52C6ABEEE00223522 /* AirBnbTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirBnbTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6332F82C6ABEEE00223522 /* AirBnbTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBnbTutorialApp.swift; sourceTree = "<group>"; };
 		DE6332FA2C6ABEEE00223522 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			children = (
 				B4B3CB162C72D24E00FB0D49 /* Rating */,
 				B4B3CB132C72D0BF00FB0D49 /* Host Info */,
+				B4B3CB1D2C7C314900FB0D49 /* Listings */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -132,6 +137,14 @@
 				B4B3CB172C72D25900FB0D49 /* RatingViewModel.swift */,
 			);
 			path = Rating;
+			sourceTree = "<group>";
+		};
+		B4B3CB1D2C7C314900FB0D49 /* Listings */ = {
+			isa = PBXGroup;
+			children = (
+				B4B3CB1B2C7C313F00FB0D49 /* ListingFeaturesViewModel.swift */,
+			);
+			path = Listings;
 			sourceTree = "<group>";
 		};
 		DE6332EC2C6ABEEE00223522 = {
@@ -217,6 +230,7 @@
 			children = (
 				DE6333302C6AC24800223522 /* ListingItemView.swift */,
 				B45A3B472C6AF00C0048FAAD /* ListingDetailView.swift */,
+				B4B3CB192C7C2FAA00FB0D49 /* ListingFeaturesView.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -352,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B3CB1A2C7C2FAA00FB0D49 /* ListingFeaturesView.swift in Sources */,
 				B45A3B4B2C6AF68D0048FAAD /* ListingImageCarouselView.swift in Sources */,
 				DE6332FB2C6ABEEE00223522 /* ContentView.swift in Sources */,
 				B4B3CB152C72D0F500FB0D49 /* HostInfoViewModel.swift in Sources */,
@@ -359,6 +374,7 @@
 				B4B3CB0D2C72C85200FB0D49 /* RatingView.swift in Sources */,
 				B4B3CB182C72D25900FB0D49 /* RatingViewModel.swift in Sources */,
 				DE63332F2C6AC08500223522 /* ExploreView.swift in Sources */,
+				B4B3CB1C2C7C313F00FB0D49 /* ListingFeaturesViewModel.swift in Sources */,
 				DE6333332C6ACD4200223522 /* SearchAndFilterBar.swift in Sources */,
 				B45A3B482C6AF00C0048FAAD /* ListingDetailView.swift in Sources */,
 				B4B3CB0F2C72CE1200FB0D49 /* HostInfoView.swift in Sources */,

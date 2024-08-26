@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RatingView: View {
-    @ObservedObject var vm: RatingViewModel
+    @EnvironmentObject var vm: RatingViewModel
     
     var body: some View {
         // rating
@@ -20,10 +20,11 @@ struct RatingView: View {
                 .underline()
                 .fontWeight(.semibold)
         }
+        .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
         .foregroundStyle(.black)
     }
 }
 
 #Preview {
-    RatingView(vm: RatingViewModel(rating: "4.86", numOfReviews: 28))
+    RatingView()
 }

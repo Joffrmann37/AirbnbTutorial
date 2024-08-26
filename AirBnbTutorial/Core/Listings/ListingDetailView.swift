@@ -30,10 +30,11 @@ struct ListingDetailView: View {
                     .font(.title)
                     .fontWeight(.semibold)
                 VStack(alignment: .leading) {
-                    RatingView(vm: RatingViewModel(rating: "4.86", numOfReviews: 28))
+                    RatingView()
                     Text("Miami, Florida")
                 }
             }
+            .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
             .font(.caption)
@@ -42,6 +43,10 @@ struct ListingDetailView: View {
             
             // Host info view
             HostInfoView(vm: HostInfoViewModel(name: "Joffrey Mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+            
+            Divider()
+            
+            ListingFeaturesView()
         }
     }
 }

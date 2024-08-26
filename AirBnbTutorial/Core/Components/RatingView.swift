@@ -27,4 +27,5 @@ struct RatingView: View {
 
 #Preview {
     RatingView()
+        .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HostInfoView: View {
-    @ObservedObject var vm: HostInfoViewModel
+    @EnvironmentObject var vm: HostInfoViewModel
     
     var body: some View {
         HStack {
@@ -35,10 +35,12 @@ struct HostInfoView: View {
                 .frame(width: 64, height: 64)
                 .clipShape(Circle())
         }
+        .environmentObject(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
         .padding()
     }
 }
 
 #Preview {
-    HostInfoView(vm: HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+    HostInfoView()
+        .environmentObject(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
 }

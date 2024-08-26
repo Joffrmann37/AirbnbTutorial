@@ -34,7 +34,6 @@ struct ListingDetailView: View {
                     Text("Miami, Florida")
                 }
             }
-            .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
             .font(.caption)
@@ -42,12 +41,14 @@ struct ListingDetailView: View {
             Divider()
             
             // Host info view
-            HostInfoView(vm: HostInfoViewModel(name: "Joffrey Mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+            HostInfoView()
             
             Divider()
             
             ListingFeaturesView()
         }
+        .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
+        .environmentObject(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
     }
 }
 

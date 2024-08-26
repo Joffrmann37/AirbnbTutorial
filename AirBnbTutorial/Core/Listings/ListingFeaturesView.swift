@@ -39,4 +39,8 @@ struct ListingFeaturesView: View {
 
 #Preview {
     ListingFeaturesView()
+        .environmentObject(ListingFeaturesViewModel(features: [
+            "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests",
+            "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests"
+        ]))
 }

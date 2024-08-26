@@ -7,9 +7,23 @@
 
 import SwiftUI
 
+struct ListingFeaturesVMKey: EnvironmentKey {
+    static var defaultValue = ListingFeaturesViewModel(features: [
+        "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests",
+        "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests"
+    ])
+}
+
+extension EnvironmentValues {
+    var vm: ListingFeaturesViewModel {
+        get { self[ListingFeaturesVMKey.self] }
+        set { self[ListingFeaturesVMKey.self] = newValue }
+    }
+}
+
 //  listing features
 struct ListingFeaturesView: View {
-    @EnvironmentObject var vm: ListingFeaturesViewModel
+    @Environment(\.vm) var vm
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -29,7 +43,7 @@ struct ListingFeaturesView: View {
                 }
             }
         }
-        .environmentObject(ListingFeaturesViewModel(features: [
+        .environment(ListingFeaturesViewModel(features: [
             "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests",
             "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests"
         ]))
@@ -39,7 +53,7 @@ struct ListingFeaturesView: View {
 
 #Preview {
     ListingFeaturesView()
-        .environmentObject(ListingFeaturesViewModel(features: [
+        .environment(ListingFeaturesViewModel(features: [
             "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests",
             "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests"
         ]))

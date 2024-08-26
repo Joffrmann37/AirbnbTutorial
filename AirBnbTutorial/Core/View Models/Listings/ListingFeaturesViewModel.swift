@@ -6,8 +6,10 @@
 //
 
 import Combine
+import SwiftUI
 
-class ListingFeaturesViewModel: ObservableObject {
+@Observable
+class ListingFeaturesViewModel {
     var features: [String]
     
     init(features: [String]) {

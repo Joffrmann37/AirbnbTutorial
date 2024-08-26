@@ -47,7 +47,7 @@ struct ListingDetailView: View {
             
             ListingFeaturesView()
         }
-        .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
+        .environment(RatingViewModel(rating: "4.86", numOfReviews: 28))
         .environment(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
     }
 }

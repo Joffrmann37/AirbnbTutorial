@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+struct RatingVMKey: EnvironmentKey {
+    static var defaultValue = RatingViewModel(rating: "4.86", numOfReviews: 28)
+}
+
+private extension EnvironmentValues {
+    var vm: RatingViewModel {
+        get { self[RatingVMKey.self] }
+        set { self[RatingVMKey.self] = newValue }
+    }
+}
+
 struct RatingView: View {
-    @EnvironmentObject var vm: RatingViewModel
+    @Environment(\.vm) var vm
     
     var body: some View {
         // rating
@@ -20,12 +31,12 @@ struct RatingView: View {
                 .underline()
                 .fontWeight(.semibold)
         }
-        .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
+        .environment(RatingViewModel(rating: "4.86", numOfReviews: 28))
         .foregroundStyle(.black)
     }
 }
 
 #Preview {
     RatingView()
-        .environmentObject(RatingViewModel(rating: "4.86", numOfReviews: 28))
+        .environment(RatingViewModel(rating: "4.86", numOfReviews: 28))
 }

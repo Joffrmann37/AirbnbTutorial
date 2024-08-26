@@ -5,11 +5,12 @@
 //  Created by Joffrey Mann on 8/18/24.
 //
 
-import Combine
+import SwiftUI
 
-class RatingViewModel: ObservableObject {
-    @Published var rating: String
-    @Published var numOfReviews: Int
+@Observable
+class RatingViewModel {
+    var rating: String
+    var numOfReviews: Int
     
     init(rating: String, numOfReviews: Int) {
         self.rating = rating

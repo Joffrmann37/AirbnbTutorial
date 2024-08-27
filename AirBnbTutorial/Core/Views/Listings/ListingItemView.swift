@@ -37,7 +37,7 @@ struct ListingItemView: View {
                     Text(listing.date)
                         .foregroundStyle(.gray)
                     HStack(spacing: 4) {
-                        Text("\(listing.price)")
+                        Text("$\(listing.price)")
                             .fontWeight(.semibold)
                         Text(listing.frequency)
                     }
@@ -53,5 +53,5 @@ struct ListingItemView: View {
 }
 
 #Preview {
-    ListingItemView(listing: .constant(Listing(city: "Miami", date: "Nov 3 - 10", distance: "12 mi", frequency: "night", price: 567, state: "FL", caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"])))
+    ListingItemView(listing: .constant(Listing(city: "Miami", date: "Nov 3 - 10", distance: "12 mi", frequency: "night", price: 567, state: "FL", caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"], features: [Feature(type: "Superhost", detail: "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests.", image: "medal")], bedding: Bedding(title: "Where you'll sleep", beds: [Bed(title: "Bedroom 1", detail: "1 queen bed"),Bed(title: "Bedroom 2", detail: "1 queen bed")]))))
 }

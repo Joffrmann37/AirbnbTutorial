@@ -46,7 +46,7 @@ struct HostInfoView: View {
                 .frame(width: 64, height: 64)
                 .clipShape(Circle())
         }
-        .environment(HostInfoViewModel(name: "Joffrey mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+        .environment(HostInfoViewModel(name: "Joffrey Mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
         .padding()
     }
 }

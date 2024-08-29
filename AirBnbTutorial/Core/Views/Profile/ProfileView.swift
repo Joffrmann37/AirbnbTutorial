@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ProfileVMKey: EnvironmentKey {
     static var defaultValue = ProfileViewModel(items: [
-            ProfileItem(name: "Settings", icon: "gearshape"),
-            ProfileItem(name: "Accessibility", icon: "accessibility"),
-            ProfileItem(name: "Visit the Help Center", icon: "questionmark.circle")
-        ]
+        ProfileItem(name: "Settings", icon: "gearshape"),
+        ProfileItem(name: "Accessibility", icon: "accessibility"),
+        ProfileItem(name: "Visit the Help Center", icon: "questionmark.circle")
+    ]
     )
 }
 
@@ -24,6 +24,7 @@ private extension EnvironmentValues {
 }
 
 struct ProfileView: View {
+    @State var shouldShowLogin = false
     @Environment(\.vm) var vm
     
     var body: some View {
@@ -39,8 +40,13 @@ struct ProfileView: View {
                         .font(.subheadline)
                         .padding(.top, 0.1)
                     
-                    TemplateButton(text: "Log in", width: 350, height: 50)
-                        .padding(.top, 40)
+                    TemplateButton(text: "Log in", width: 350, height: 50) {
+                        self.shouldShowLogin = true
+                    }
+                    .padding(.top, 40)
+                    .sheet(isPresented: $shouldShowLogin) {
+                        LoginView()
+                    }
                     
                     NoAccountView()
                     

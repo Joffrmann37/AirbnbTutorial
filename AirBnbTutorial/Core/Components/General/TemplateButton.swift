@@ -11,10 +11,11 @@ struct TemplateButton: View {
     @State var text: String
     @State var width: CGFloat = 140
     @State var height: CGFloat = 40
+    var action: (() -> Void)
     
     var body: some View {
         Button {
-            
+            action()
         } label: {
             Text(text)
                 .foregroundStyle(.white)
@@ -28,5 +29,7 @@ struct TemplateButton: View {
 }
 
 #Preview {
-    TemplateButton(text: "Reserve")
+    TemplateButton(text: "Reserve", action: {
+        
+    })
 }

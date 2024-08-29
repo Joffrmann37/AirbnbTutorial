@@ -32,7 +32,9 @@ struct BottomFloatingView: View {
                 
                 Spacer()
                 
-                TemplateButton(text: "Reserve")
+                TemplateButton(text: "Reserve") {
+                    
+                }
             }
             .padding(.horizontal, 32)
         }

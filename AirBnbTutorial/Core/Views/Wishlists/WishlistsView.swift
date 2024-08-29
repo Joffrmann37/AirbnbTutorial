@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WishlistsView: View {
+    @State var shouldShowLogin = false
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .trailing) {
@@ -32,10 +34,14 @@ struct WishlistsView: View {
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
                 
-                TemplateButton(text: "Log in", width: 100, height: 50)
-                    .padding(.leading, 20)
-                    .padding(.top, 40)
-                
+                TemplateButton(text: "Log in", width: 100, height: 50) {
+                    self.shouldShowLogin = true
+                }
+                .padding(.leading, 20)
+                .padding(.top, 40)
+                .sheet(isPresented: $shouldShowLogin) {
+                    LoginView()
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .padding(.leading, 20)

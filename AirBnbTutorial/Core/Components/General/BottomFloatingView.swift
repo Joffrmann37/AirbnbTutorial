@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BottomFloatingView: View {
+    @State var reservation: Reservation
+    
     var body: some View {
         VStack {
             Divider()
@@ -15,14 +17,14 @@ struct BottomFloatingView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("$500")
+                    Text("$\(reservation.price)")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                     
                     Text("Total before taxes")
                         .font(.footnote)
                     
-                    Text("Oct 15 - 20")
+                    Text(reservation.date)
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .underline()
@@ -30,17 +32,7 @@ struct BottomFloatingView: View {
                 
                 Spacer()
                 
-                Button {
-                    
-                } label: {
-                    Text("Reserve")
-                        .foregroundStyle(.white)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .frame(width: 140, height: 40)
-                        .background(.pink)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                }
+                TemplateButton(text: "Reserve")
             }
             .padding(.horizontal, 32)
         }
@@ -49,5 +41,5 @@ struct BottomFloatingView: View {
 }
 
 #Preview {
-    BottomFloatingView()
+    BottomFloatingView(reservation: Reservation(date: "Nov 3 - 10", frequency: "night", price: 567))
 }

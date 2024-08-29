@@ -11,6 +11,24 @@ class Root: Codable {
     var listings: [Listing]
 }
 
+struct Coordinate: Codable, Equatable, Hashable {
+    let latitude: Double
+    let longitude: Double
+}
+
+struct Location: Codable, Equatable, Hashable {
+    let city: String
+    let state: String
+    let distance: String
+    let coordinates: Coordinate
+}
+
+struct Reservation: Codable, Equatable, Hashable {
+    let date: String
+    let frequency: String
+    let price: Int
+}
+
 struct Feature: Codable, Equatable, Hashable {
     let type: String
     let detail: String
@@ -27,15 +45,22 @@ struct Bedding: Codable, Equatable, Hashable {
     let beds: [Bed]
 }
 
+struct Amenity: Codable, Equatable, Hashable {
+    let image: String
+    let detail: String
+}
+
+struct AmenityInfo: Codable, Equatable, Hashable {
+    let title: String
+    let amenities: [Amenity]
+}
+
 struct Listing: Codable, Equatable, Hashable {
-    let city: String
-    let date: String
-    let distance: String
-    let frequency: String
-    let price: Int
-    let state: String
+    let location: Location
+    let reservationInfo: Reservation
     let caption: String
     let images: [String]
     let features: [Feature]
     let bedding: Bedding
+    let amenityInfo: AmenityInfo
 }

@@ -29,17 +29,17 @@ struct ListingItemView: View {
             HStack(alignment: .top) {
                 // details
                 VStack(alignment: .leading) {
-                    Text(listing.city)
+                    Text(listing.location.city)
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
-                    Text("\(listing.distance) away")
+                    Text("\(listing.location.distance) away")
                         .foregroundStyle(.gray)
-                    Text(listing.date)
+                    Text(listing.reservationInfo.date)
                         .foregroundStyle(.gray)
                     HStack(spacing: 4) {
-                        Text("$\(listing.price)")
+                        Text("$\(listing.reservationInfo.price)")
                             .fontWeight(.semibold)
-                        Text(listing.frequency)
+                        Text(listing.reservationInfo.frequency)
                     }
                     .foregroundStyle(.black)
                 }
@@ -53,5 +53,5 @@ struct ListingItemView: View {
 }
 
 #Preview {
-    ListingItemView(listing: .constant(Listing(city: "Miami", date: "Nov 3 - 10", distance: "12 mi", frequency: "night", price: 567, state: "FL", caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"], features: [Feature(type: "Superhost", detail: "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests.", image: "medal")], bedding: Bedding(title: "Where you'll sleep", beds: [Bed(title: "Bedroom 1", detail: "1 queen bed"),Bed(title: "Bedroom 2", detail: "1 queen bed")]))))
+    ListingItemView(listing: .constant(Listing(location: Location(city: "Miami", state: "FL", distance: "12 mi", coordinates: Coordinate(latitude: 25.781441, longitude: -80.188332)), reservationInfo: Reservation(date: "Nov 3 - 10", frequency: "night", price: 567), caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"], features: [Feature(type: "Superhost", detail: "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests.", image: "medal")], bedding: Bedding(title: "Where you'll sleep", beds: [Bed(title: "Bedroom 1", detail: "1 queen bed"),Bed(title: "Bedroom 2", detail: "1 queen bed")]), amenityInfo: AmenityInfo(title: "What this place offers", amenities: [Amenity(image: "wifi", detail: "Wifi")]))))
 }

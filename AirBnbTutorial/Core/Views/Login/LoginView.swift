@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct LoginView: View {
     @Environment(\.dismiss) var dismiss
@@ -68,12 +69,22 @@ struct LoginView: View {
                 LabelledDivider(label: "Or")
                     .padding(.bottom, 20)
                 
-                AlternateLoginButton(text: "Continue with email", width: 350, height: 50)
+                AlternateLoginButton(text: "Continue with email", action: {
+                    print("Email hit")
+                }, width: 350, height: 50)
                 
-                AlternateLoginButton(text: "Continue with Apple", width: 350, height: 50, image: "apple.logo")
+                AlternateLoginButton(text: "Continue with Apple", action: {
+                    print("Apple hit")
+                }, width: 350, height: 50, image: "apple.logo")
                     .padding(.top, 10)
                 
-                AlternateLoginButton(text: "Continue with Google", width: 350, height: 50, image: "google", isCustomImage: true)
+                AlternateLoginButton(text: "Continue with Google", action: {
+                    guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
+                    let signInConfig = GIDConfiguration.init(clientID: "CLIENT_ID")
+                    GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { result, error in
+                        print(result)
+                    }
+                }, width: 350, height: 50, image: "google", isCustomImage: true)
                     .padding(.top, 10)
             }
             .frame(maxHeight: .infinity, alignment: .top)

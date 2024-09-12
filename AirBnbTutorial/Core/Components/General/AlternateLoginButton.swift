@@ -22,6 +22,7 @@ struct CustomLabel: LabelStyle {
 
 struct AlternateLoginButton: View {
     @State var text: String
+    @State var action: (() -> Void)
     @State var width: CGFloat = 140
     @State var height: CGFloat = 40
     @State var backgroundColor: Color = .clear
@@ -31,7 +32,7 @@ struct AlternateLoginButton: View {
     
     var body: some View {
         Button {
-            
+            action()
         } label: {
             if isCustomImage {
                 Label {
@@ -72,5 +73,7 @@ struct AlternateLoginButton: View {
 }
 
 #Preview {
-    AlternateLoginButton(text: "Continue with email", width: 350, height: 50)
+    AlternateLoginButton(text: "Continue with email", action: {
+        
+    }, width: 350, height: 50)
 }

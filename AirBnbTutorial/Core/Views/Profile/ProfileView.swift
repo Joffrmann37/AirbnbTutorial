@@ -30,22 +30,25 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Profile")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text("Log in to start planning your next trip.")
-                        .font(.subheadline)
-                        .padding(.top, 0.1)
-                    
-                    TemplateButton(text: "Log in", width: 350, height: 50) {
-                        self.shouldShowLogin = true
-                    }
-                    .padding(.top, 40)
-                    .sheet(isPresented: $shouldShowLogin) {
-                        LoginView()
+                VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading) {
+                        Text("Profile")
+                            .font(.largeTitle)
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text("Log in to start planning your next trip.")
+                            .font(.subheadline)
+                            .padding(.top, 0.1)
+                        
+                        TemplateButton(text: "Log in", width: 360, height: 48) {
+                            self.shouldShowLogin = true
+                        }
+                        .padding(.top, 40)
+                        .sheet(isPresented: $shouldShowLogin) {
+                            LoginView()
+                                .environment(LoginViewModel(useCase: LoginUseCase(repository: LoginRepository())))
+                        }
                     }
                     
                     NoAccountView()
@@ -54,24 +57,7 @@ struct ProfileView: View {
                     
                     LazyVStack {
                         ForEach(vm.items, id: \.self) { item in
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Image(systemName: item.icon)
-                                        .resizable()
-                                        .frame(width: 32, height: 32)
-                                        .padding(.trailing, 10)
-                                    
-                                    Text(item.name)
-                                    
-                                    Spacer()
-                                    
-                                    Image(systemName: "chevron.right")
-                                        .padding(.trailing, 20)
-                                }
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            Divider()
-                                .padding(.trailing, 20)
+                            ProfileOptionRowView(item: item)
                         }
                     }
                     .padding(.top, 20)

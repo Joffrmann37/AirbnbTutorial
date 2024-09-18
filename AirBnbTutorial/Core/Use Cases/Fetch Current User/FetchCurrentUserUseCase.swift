@@ -1,21 +1,21 @@
 //
-//  FetchListingsUseCase.swift
+//  FetchCurrentUserUseCase.swift
 //  AirBnbTutorial
 //
-//  Created by Joffrey Mann on 8/26/24.
+//  Created by Joffrey Mann on 9/12/24.
 //
 
 import Foundation
 import Combine
 
-class FetchListingsUseCase {
+class FetchCurrentUserUseCase {
     let repository: Fetchable
     
     init(repository: Fetchable) {
         self.repository = repository
     }
     
-    func fetchItems<T: Decodable>(request: URLRequest, type: T.Type = Root.self) -> Future<T, ABError> where T: Root  {
+    func fetchCurrentUser<T: Decodable>(request: URLRequest, type: T.Type = User.self) -> Future<T, ABError> where T: User  {
         return repository.fetch(request: request, forType: type)
     }
 }

@@ -8,18 +8,37 @@
 import SwiftUI
 import GoogleSignIn
 
+struct SignupVMKey: EnvironmentKey {
+    static var defaultValue = SignUpViewModel(useCase: SignUpUseCase(repository: SignUpRepository()))
+}
+
+private extension EnvironmentValues {
+    var signupVM: SignUpViewModel {
+        get { self[SignupVMKey.self] }
+        set { self[SignupVMKey.self] = newValue }
+    }
+}
+
 struct LoginView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(UserViewModel.self) var userVM
+    @Environment(\.signupVM) var signupVM
+    @State var phone = ""
+    @State var shouldShowConfirmation = false
     
     var body: some View {
         GeometryReader { reader in
             VStack {
                 HStack(spacing: 100) {
-                    Image(systemName: "xmark")
-                        .frame(width: 40, height: 40)
-                        .onTapGesture {
-                            dismiss()
-                        }
+                    if userVM.isLoggedIn {
+                        Image(systemName: "xmark")
+                            .frame(width: 40, height: 40)
+                            .onTapGesture {
+                                dismiss()
+                            }
+                    } else {
+                        Spacer()
+                    }
                     
                     Text("Log in or sign up")
                         .font(.subheadline)
@@ -46,7 +65,7 @@ struct LoginView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1).foregroundColor(Color.black))
                     
                     HStack {
-                        TextField("", text: .constant(""), prompt: Text("Phone Number")
+                        TextField("", text: $phone, prompt: Text("Phone Number")
                             .foregroundColor(Color.gray))
                     }
                     .padding([.horizontal], 10)
@@ -62,7 +81,11 @@ struct LoginView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 TemplateButton(text: "Continue", width: 350, height: 50) {
-                    
+                    let body = UserRequest(phone: phone, verificationCode: nil, email: nil, firstName: nil, lastName: nil, dob: nil, password: nil, address: nil, emergencyContact: nil)
+                    guard let request = RequestGenerator.createRequest(urlStr: "http://127.0.0.1:8000/signUp", body: body, method: .POST, contentType: "application/json; charset=utf-8") else {
+                        return
+                    }
+                    signupVM.signup(request: request)
                 }
                     .padding(.top, 20)
                 
@@ -80,15 +103,21 @@ struct LoginView: View {
                 
                 AlternateLoginButton(text: "Continue with Google", action: {
                     guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
-                    let signInConfig = GIDConfiguration.init(clientID: "CLIENT_ID")
                     GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { result, error in
                         print(result)
                     }
                 }, width: 350, height: 50, image: "google", isCustomImage: true)
                     .padding(.top, 10)
             }
+            .sheet(isPresented: $shouldShowConfirmation) {
+                PhoneConfirmationView(phone: $phone)
+                    .environment(LoginViewModel(useCase: LoginUseCase(repository: LoginRepository())))
+            }
             .frame(maxHeight: .infinity, alignment: .top)
         }
+        .onChange(of: signupVM.response, { oldValue, newValue in
+            shouldShowConfirmation = newValue?.success ?? false
+        })
         .navigationBarBackButtonHidden()
     }
 }

@@ -7,31 +7,28 @@
 
 import SwiftUI
 
+struct UserVMKey: EnvironmentKey {
+    static var defaultValue = UserViewModel.shared
+}
+
+private extension EnvironmentValues {
+    var vm: UserViewModel {
+        get { self[UserVMKey.self] }
+        set { self[UserVMKey.self] = newValue }
+    }
+}
+
 struct ContentView: View {
+    @Environment(\.vm) var vm
+    
     var body: some View {
-        TabView {
-            ExploreView()
-                .tabItem {
-                    Label("Explore", systemImage: "magnifyingglass")
-                }
-            WishlistsView()
-                .tabItem {
-                    Label("Wishlists", systemImage: "heart")
-                }
-            TripsView()
-                .tabItem {
-                    Label("Trips", systemImage: "bag")
-                }
-            InboxView()
-                .tabItem {
-                    Label("Inbox", systemImage: "message")
-                }
-            ProfileView()
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
+        if vm.isLoggedIn {
+            MainTabView()
+        } else {
+            LoginView()
+                .environment(UserViewModel.shared)
+                .environment(SignUpViewModel(useCase: SignUpUseCase(repository: SignUpRepository())))
         }
-        .accentColor(Color.pink)
     }
 }
 

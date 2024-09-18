@@ -27,6 +27,7 @@ struct ListingDetailView: View {
             
             // Host info view
             HostInfoView()
+                .environment(HostInfoViewModel(name: listing.owner.name, numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: listing.owner.imgUrl))
             
             Divider()
             
@@ -44,6 +45,7 @@ struct ListingDetailView: View {
             
             MapView(location: listing.location)
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden()
         .ignoresSafeArea()
         .padding(.bottom, 64)
@@ -51,10 +53,10 @@ struct ListingDetailView: View {
             BottomFloatingView(reservation: listing.reservationInfo)
         }
         .environment(RatingViewModel(rating: "4.86", numOfReviews: 28))
-        .environment(HostInfoViewModel(name: "Joffrey Mann", numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
+        .environment(HostInfoViewModel(name: listing.owner.name, numOfGuests: 4, numOfBedrooms: 4, numOfBeds: 4, numOfBaths: 3, profilePic: "joffreyProfile"))
     }
 }
 
 #Preview {
-    ListingDetailView(path: .constant([]), listing: .constant(Listing(location: Location(city: "Miami", state: "FL", distance: "12 mi", coordinates: Coordinate(latitude: 25.781441, longitude: -80.188332)), reservationInfo: Reservation(date: "Nov 3 - 10", frequency: "night", price: 567), caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"], features: [Feature(type: "Superhost", detail: "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests.", image: "medal")], bedding: Bedding(title: "Where you'll sleep", beds: [Bed(title: "Bedroom 1", detail: "1 queen bed"),Bed(title: "Bedroom 2", detail: "1 queen bed")]), amenityInfo: AmenityInfo(title: "What this place offers", amenities: [Amenity(image: "wifi", detail: "Wifi")]))))
+    ListingDetailView(path: .constant([]), listing: .constant(Listing(id: 1, type: "Home", owner: Owner(id: 1, name: "John Smith", imgUrl: ""),location: Location(city: "Miami", state: "FL", distance: "12 mi", coordinates: Coordinate(latitude: 25.781441, longitude: -80.188332)), reservationInfo: Reservation(date: "Nov 3 - 10", frequency: "night", price: 567), caption: "Miami Villa", images: ["https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000"], features: [Feature(type: "Superhost", detail: "Superhosts are experienced, highly rated hosts who are committed to providing greeat starts for guests.", image: "medal")], bedding: Bedding(title: "Where you'll sleep", beds: [Bed(title: "Bedroom 1", detail: "1 queen bed"),Bed(title: "Bedroom 2", detail: "1 queen bed")]), amenityInfo: AmenityInfo(title: "What this place offers", amenities: [Amenity(image: "wifi", detail: "Wifi")]))))
 }

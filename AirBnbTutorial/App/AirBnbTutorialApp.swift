@@ -12,6 +12,7 @@ struct AirBnbTutorialApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(UserViewModel.shared)
         }
     }
 }

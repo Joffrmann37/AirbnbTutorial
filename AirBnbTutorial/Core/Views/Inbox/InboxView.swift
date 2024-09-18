@@ -32,7 +32,9 @@ struct InboxView: View {
                 }
                 .padding(.top, 40)
                 .sheet(isPresented: $shouldShowLogin) {
+                    let request = URLRequest(url: URL(string: "http://127.0.0.1:8000/login")!)
                     LoginView()
+                        .environment(LoginViewModel(useCase: LoginUseCase(repository: LoginRepository())))
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

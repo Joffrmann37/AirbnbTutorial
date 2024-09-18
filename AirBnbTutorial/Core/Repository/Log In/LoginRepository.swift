@@ -1,35 +1,19 @@
 //
-//  ListingsRepository.swift
+//  LoginRepository.swift
 //  AirBnbTutorial
 //
-//  Created by Joffrey Mann on 8/26/24.
+//  Created by Joffrey Mann on 9/12/24.
 //
 
 import Foundation
 import Combine
 
-enum ABError: Int, Swift.Error {
-    case badRequest = 400
-    case forbidden = 403
-    case notFound = 404
-    case serverError = 500
-    case notAcceptable = 406
-}
-
-protocol Fetchable {
-    func fetch<T>(request: URLRequest, forType type: T.Type) -> Future<T, ABError> where T : Decodable
-}
-
-protocol Postable {
-    func post<T>(request: URLRequest, forType type: T.Type) -> Future<T, ABError> where T : Decodable
-}
-
-class ListingsRepository {
+class LoginRepository {
     var subscriptions = Set<AnyCancellable>()
 }
 
-extension ListingsRepository: Fetchable {
-    func fetch<T>(request: URLRequest, forType type: T.Type) -> Future<T, ABError> where T : Decodable {
+extension LoginRepository: Postable {
+    func post<T>(request: URLRequest, forType type: T.Type) -> Future<T, ABError> where T : Decodable {
         return Future<T, ABError> { [unowned self] promise in
             URLSession(configuration: .default).dataTaskPublisher(for: request)
                 .tryMap { (data: Data, response: URLResponse) in
@@ -52,7 +36,6 @@ extension ListingsRepository: Fetchable {
             promise(.success($0))
         }
         .store(in: &self.subscriptions)
-            
         }
     }
 }

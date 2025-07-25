@@ -37,6 +37,7 @@ extension FetchListingsUseCase: ListingLoading {
             .eraseToAnyPublisher()
     }
     
+    // Added test comment
     func fetchListingsPublish(token: String) -> AnyPublisher<[Listing], ABError> {
             guard let request = RequestGenerator.createRequest(
                 urlStr: "http://127.0.0.1:8000/listings",

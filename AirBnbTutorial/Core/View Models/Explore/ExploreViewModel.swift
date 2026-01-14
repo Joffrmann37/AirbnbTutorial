@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+protocol ListingLoading {
+    func fetchListingsPublish(token: String) -> AnyPublisher<[Listing], ABError>
+}
+
 @Observable
 class ExploreViewModel {
     var useCase: FetchListingsUseCase

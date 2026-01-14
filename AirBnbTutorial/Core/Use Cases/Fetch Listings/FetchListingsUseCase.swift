@@ -19,3 +19,38 @@ class FetchListingsUseCase {
         return repository.fetch(request: request, forType: type)
     }
 }
+
+// Core/Use Cases/Fetch Listings/FetchListingsUseCase.swift
+extension FetchListingsUseCase: ListingLoading {
+    func fetchListings(token: String) -> AnyPublisher<[Listing], ABError> {
+        guard let request = RequestGenerator.createRequest(
+            urlStr: "http://127.0.0.1:8000/listings",
+            token: token,
+            body: nil,
+            contentType: "application/json; charset=utf-8"
+        ) else {
+            return Fail(error: ABError.badRequest).eraseToAnyPublisher()
+        }
+        
+        return fetchItems(request: request)
+            .map { $0.listings }
+            .eraseToAnyPublisher()
+    }
+    
+    // Added test comment
+    func fetchListingsPublish(token: String) -> AnyPublisher<[Listing], ABError> {
+            guard let request = RequestGenerator.createRequest(
+                urlStr: "http://127.0.0.1:8000/listings",
+                token: token,
+                body: nil,
+                contentType: "application/json; charset=utf-8"
+            ) else {
+                return Fail(error: ABError.badRequest).eraseToAnyPublisher()
+            }
+            
+            return fetchItems(request: request)
+                .map { $0.listings }
+                .eraseToAnyPublisher()
+        }
+}
+
